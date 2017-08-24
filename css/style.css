@@ -71,7 +71,7 @@ overflow-y: scroll;
 body {
 margin: 0 auto;
 color: #555;
-font: normal 1em/150% Geneva, Helvetica, sans-serif, Verdana;
+font: normal 0.75em/150% Geneva, Helvetica, sans-serif, Verdana;
 letter-spacing: 1px;
 max-width: 1100px;
 position: relative;
@@ -169,23 +169,22 @@ http://googlewebmastercentral-de.blogspot.de/2012/06/flexibles-design-und-die-le
 Site-Header
 */
 header {
-margin-bottom: 45px;
-padding: 0 20px 30px 15px;
-color: #FFF;
+margin-bottom: 25px;
+margin-top: 10px;
+padding: 0 10px 5px 15px;
+color: #222222;
 position: relative;
-border-bottom: 3px solid #aa5500;
+border-bottom: 2px solid #aa5500;
 background-color: #000000;
 background-size: 100%;
 /*
 background-image: -webkit-linear-gradient(top, #000000 30%, #f0ff00 100%);
 background-image: linear-gradient(to bottom, #000000 40%, #f0ff00 100%);
-
 */
-
-box-shadow: 0 5px 10px #555555;
+box-shadow: 0 5px 5px #555555;
 }
 header h1 {
-padding: 60px 0 10px 0;
+padding: 30px 0 10px 0;
 font-size: 2em;
 }
 header h1 a {
@@ -209,7 +208,7 @@ overflow: hidden;
 Sidebar
 */
 aside {
-width: 23%;
+width: 15%;
 float: left;
 }
 aside form {
@@ -227,37 +226,20 @@ padding: 10px 0 0;
 aside form p input {
 padding: 4px 4px;
 }
-aside form p input[type="text"] {
-width: 95%;
-background: white url("http://wiki.selfhtml.org/images/1/1f/Design_11_sprites.png") no-repeat right -366px;
-border-color: #779EC4;
-border-style: outset;
-border-radius: 5px;
-color: #999;
-}
-aside form p input[type="text"]:focus {
-color: #333;
-background: url("http://wiki.selfhtml.org/images/1/1f/Design_11_sprites.png") no-repeat right -366px;
-border-color: #AAA;
-}
 aside h2, aside h3, aside h4, aside fieldset legend {
 margin-bottom: 10px;
-font-size: .7em;
+font-family: Monospace;
+font-size: 0.9em;
 font-weight: bold;
 line-height: 130%;
 color: #BAC5C7;
 border-bottom: 1px solid;
 cursor: default;
 }
-aside #network_tools {
-margin-top: 35px;
-height: 105px;
-background: url("http://wiki.selfhtml.org/images/1/1f/Design_11_sprites.png") no-repeat 0 -250px;
-}
-aside #network_tools > div {
-display: inline;
-}
 aside nav li {
+font-family: Monospace;
+font-weight: bold;
+font-size: 1.2em;
 padding: 0;
 }
 aside nav a, aside nav span {
@@ -273,7 +255,7 @@ color: #82B2BC;
 Article
 */
 #breadcrumb {
-width: 73%;
+width: 82%;
 float: right;
 margin-bottom: 10px;
 font-size: .7em;
@@ -291,7 +273,8 @@ display: inline;
 
 article {
 float: right;
-width: 73%;
+width: 82%;
+font-family: Sans-Serif;
 }
 article h1, article h2, article h3, article h4, article h5, article h6 {
 padding: 25px 0;
