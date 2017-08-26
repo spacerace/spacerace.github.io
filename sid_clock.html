@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <link href="css/style.css" rel="stylesheet" title="Default Stylesheet">
+  <title>SID-Clock - spacerace.github.io</title>
+</head>
+<body>
+
+<!--
+Skiplinks
+Mit der Tabtaste Inhalte anspringen.
+-->
+<ul id="skiplinks">
+  <li><a href="#navigation">Zum Hauptmenü</a></li>
+  <li><a href="#search">Zur Suche</a></li>
+  <li><a href="#main">Zum Inhalt</a></li>
+</ul><!-- skiplinks ends -->
+
+
+<header>
+  <hgroup lang="en">
+    <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
+    <h2>Elektronik, Mikrocontroller, Linux</h2>
+  </hgroup>
+</header>
+
+<main>
+<!--
+aside (1. Sidebar mit dem Hauptmenu)
+-->
+<aside>
+  <h2>Hauptmenu</h2>
+  <nav id="navigation">
+  <ul>
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="01-elektronik.html">Elektronik</a></li>
+    <li><a href="05-stm32.html">STM32</a></li>
+    <li><a href="06-avr_avr32.html">AVR+AVR32</a></li>
+    <li><a href="15-displays.html">Displays</a></li>
+    <li><a href="25-emlinux.html">Embedded Linux</a></li>
+    <li><a href="35-pclinux.html">PC Linux</a></li>
+    <li><a href="75-collect.html">Sammlung</a></li>
+    <li><a href="99-about.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+</aside><!-- aside ends -->
+
+
+<!--
+breadcrumb (Brotkrümelnavigation)
+Das Breadcrumb-Menu basiert direkt auf einem von Google empfohlenem Schemata.
+http://support.google.com/webmasters/bin/answer.py?hl=de&answer=185417
+Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen könnte?
+-->
+<nav id="breadcrumb">
+  <h2>Sie sind hier:</h2>
+  <a href="./sid_clock.html"><span itemprop="title">SID-Clock</span></a>
+</nav><!-- breadcrumb ends -->
+
+<!--
+Der eigentliche Inhalt der Seite
+-->
+<article id="main">
+	<h1>SID-Clock</h1><br>
+	Die "SID-Clock" ist ein Wecker, der fast nur aus Teilen aus Elektroschrott besteht.<br>
+	Der Name kommt daher, dass ein <a href="pdf/datasheet_6581.pdf">mos6581 SID-Chip</a> die Wecktöne erzeugt.<br><br>
+	<h1>CPU-Modul:</h1><br>
+	Eins der wenigen gekauften Teile hat ca. 2$ gekostet und ist ein STM32-Board, genannt "BluePill".
+	Im Wiki der Seite mikrocontroller.net gibt es einen <a href="">Artikel</a> darüber, hier eine Zusammenfassung:<br>
+	<ul><li>stm32f103c8t6 Mikrocontroller, 64k Flash, 20k RAM</li></ul>
+	<ul><li>LED an PC13, BOOT0/BOOT1 Jumper, RESET Button, USB, SWD</li></ul>
+	<ul><li>8MHz Quarz, 32.768kHz Quarz</li></ul>
+	<br>
+	<h1>Display:</h1><br>
+	<h1>Stromversorgung:</h1><br>
+	Der SID in der älteren Version benötigt 12V und in der neueren Version 9V. Dabei auch ein bisschen Strom, er erwärmt sich stark.<br>
+	Das Display benötigt 5V und frisst dabei ganz schön was an Strom, wird ebenfalls sehr warm.<br>
+	Der STM32-Controller arbeitet mit 3,3V, auf dem CPU-Modul sitzt jedoch schon ein 3,3V-Regler, der mit 5V arbeitet.<br><br>
+	In meiner Bastelkiste fanden sich einige DC/DC-Module von Traco mit 18-36V in und 5V/0,6A out. <br>
+	Mit einem 18V Steckernetzteil betreibe ich nun diesen Wandler und einen LM317T, der per Jumper zwischen 9V und 12V umgestellt wird.<br>
+	<br>Die Verluste im LM317T halten sich in Grenzen und können leicht mit einem kleinen Kühlkörper abgeführt werden.<br>
+	Beim Display jedoch setzte ich auf den DC/DC-Wandler, da wären mir die Verluste auf Dauer doch zu hoch.<br>
+	Die 5V Versorgung wird von 2x 6F/2.7V-SuperCaps gepuffert. In Reihe ergibt das 3F/5.4V und hält Display+Controller ca. 1,5 Minuten am laufen.<br><br>
+	<h1>Gehäuse:</h1><br>
+	
+	
+</article>
+
+
+
+</main>
+
+
+<!--
+Ab hier kommen Javascripte, eigene oder Scripte von diversen Diensten (Facebook und Co.)
+-->
+
+</body>
+</html> 
+
+
+
+
+
+
