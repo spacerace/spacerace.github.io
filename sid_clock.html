@@ -71,6 +71,7 @@ Der eigentliche Inhalt der Seite
 	ein 6581, den ich aus einem toten C64 habe. Da ich auch noch einen 85xx-SID habe, der mit 9V statt 12V
 	arbeitet, kann die Stromversorgung auf diese beiden Spannungen eingestellt werden. Dazu mehr weiter unten.
 	<h1>Audio-Verstärker + Lautsprecher:</h1>
+	<br>
 	Der Audio-Verstärker wurde auch noch nicht fest eingebaut. Der Lautsprecher ist ein kleiner 8Ohm 0.25W aus
 	einem alten PC-Gehäuse.<br>
 	Der Audio Verstärker wird wohl ein einfacher LMxxx Kopfhörerverstärker oder ganz einfach ein OpAmp wie LM358 werden.<br>
@@ -108,6 +109,12 @@ Der eigentliche Inhalt der Seite
 	Für einfachen Uhr-/Weckerbetrieb reicht eine Dauer-Schleife und ein Timer Interrupt.<br>
 	In meinem Fall habe ich einen SysTick von 1kHz. Dieser SysTick zählt eine Variable (<i>ticks</i>) hoch. 
 	Sobald <i>ticks</i> 1000 erreicht, wird es zurückgesetzt auf 0 und der Sekundenzähler geht eins hoch.<br>
+	Falls das passiert, wird geprüft, ob eine Minute überschritten wurde. Falls ja, Minute hoch, Sekunde=0, ....<br>
+	<br>
+	Mehr sollte im SysTick aber auch nicht passieren, der Rest passiert in der Hauptschleife.<br>
+	Diese rennt einfach immer im Kreis und eine State-Machine führt zu bestimmten Zeitpunkten verschiedene Dinge aus:<br>
+	<br>
+	<a href="">Hier</a> ist der Code der ersten funktionierenden Uhr, wie ihr sie auf den Fotos seht. Nicht der Prototyp in der Dose!<br>
 </article>
 
 
