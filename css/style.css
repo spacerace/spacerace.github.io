@@ -66,6 +66,7 @@ Styles starts
 */
 html {
 overflow-y: scroll;
+overflow-x: scroll;
 /* Horizontale Scrollbalken erzwingen */
 }
 
@@ -128,10 +129,7 @@ border-right: 1px solid #FFF;
 table th:nth-child(5) {
 border-right: 1px solid #355e64;
 }
-table tfoot td {
-height: 25px;
-font-size: .8em;
-}
+
 
 /*
 Skiplinks
@@ -203,7 +201,7 @@ main {
 	  display: block; /* noch für IE 8-11 nötig */	
 margin: 20px 0;
 padding: 0 15px;
-overflow: hidden;
+/*overflow: hidden;*/
 }
 
 /*
@@ -302,8 +300,8 @@ list-style: square;
 article img {
 margin: 5px 5px 3px 15px;
 float: none;
-border: 1px solid #aa1111;
-border-radius: 5px;
+border: 1px solid black;
+border-radius: 2px;
 }
 
 article blockquote {
@@ -389,18 +387,7 @@ margin-bottom: 30px;
 aside form legend {
 display: none;
 }
-aside form p input[type="text"] {
-padding: 9px 5px;
-background: none;
-font-size: 1.1em;
-color: #BBCEE1;
-}
-aside form p input[type="text"]:focus {
-background: none;
-border-color: #265258;
-color: #333;
-box-shadow: #949494 0 0 10px;
-}
+
 
 aside:last-child {
 margin-top: 75px;
@@ -425,12 +412,6 @@ margin: 0;
 float: none;
 }
 */
-footer {
-text-align: left;
-}
-footer section {
-width: auto;
-display: block;
-}
+
 }
 
