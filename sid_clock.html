@@ -63,6 +63,19 @@ Der eigentliche Inhalt der Seite
 	<ul><li>8MHz Quarz, 32.768kHz Quarz</li></ul>
 	<br>
 	<h1>Display:</h1><br>
+	<h1>SID</h1><br>
+	<h1>Audio-Verstärker</h1>
+	<h1>RTC:</h1><br>
+	Der stm32f103 besitzt eine Real-Time-Clock (RTC). Diese zählt die Sekunden seit start in einem 32bit breiten Register.<br>
+	Fällt der Strom aus und die RTC ist gepuffert, läuft diese weiter. Sobald der Strom wieder da ist, kann das Programm beim<br>
+	starten, den Wert der RTC wiederherstellen. Ich hatte mehrere 10F/2,7V SuperCaps und 2 in Reihe haben dann genug Spannungsfestigkeit für 3,3V.<br>
+	<center>
+		<img src="img/stm32_rtc_cap_buffer.png">
+	</center>
+	Die Diode D1 verhindert, dass der Rest der Schaltung aus den SuperCaps gespeist wird.<br>
+	Der Widerstand begrenzt den Ladestrom zu Beginn auf ca. (3,3V-0,7V)/22Ohm=118mA.<br>
+	Der Spannungsregler auf dem BluePill-Board wäre damit fast schon überfordert, will man den dafür verwenden, sollte man R1 auf 75...100Ohm vergrössern.<br>
+	Dementsprechend steigt aber auch die Ladezeit.<br><br>
 	<h1>Stromversorgung:</h1><br>
 	Der SID in der älteren Version benötigt 12V und in der neueren Version 9V. Dabei auch ein bisschen Strom, er erwärmt sich stark.<br>
 	Das Display benötigt 5V und frisst dabei ganz schön was an Strom, wird ebenfalls sehr warm.<br>
@@ -70,10 +83,15 @@ Der eigentliche Inhalt der Seite
 	In meiner Bastelkiste fanden sich einige DC/DC-Module von Traco mit 18-36V in und 5V/0,6A out. <br>
 	Mit einem 18V Steckernetzteil betreibe ich nun diesen Wandler und einen LM317T, der per Jumper zwischen 9V und 12V umgestellt wird.<br>
 	<br>Die Verluste im LM317T halten sich in Grenzen und können leicht mit einem kleinen Kühlkörper abgeführt werden.<br>
-	Beim Display jedoch setzte ich auf den DC/DC-Wandler, da wären mir die Verluste auf Dauer doch zu hoch.<br>
+	Maximal gehe ich von einem Verlust von ca. 0.7W-0.9W aus.<br><br>
+	Beim Display und der restlichen Elektronik jedoch setzte ich auf den DC/DC-Wandler, da wären mir die Verluste auf Dauer doch zu hoch.
+	Grob überschlagen wären das (18V-5V)*0.35A=4.55W.<br>
 	Die 5V Versorgung wird von 2x 6F/2.7V-SuperCaps gepuffert. In Reihe ergibt das 3F/5.4V und hält Display+Controller ca. 1,5 Minuten am laufen.<br><br>
 	<h1>Gehäuse:</h1><br>
 	
+	<hr><hr>
+	
+	<h1>Software</h1>
 	
 </article>
 
