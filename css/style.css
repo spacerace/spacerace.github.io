@@ -3,7 +3,7 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -48,9 +48,10 @@ content: "";
 content: none;
 }
 
+/*
 a img {
 border: none;
-}
+}*/
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
 display: block;
@@ -296,12 +297,14 @@ article ul ul {
 margin-left: 25px;
 list-style: square;
 }
+
 article img {
 margin: 5px 5px 3px 15px;
-float: right;
-border: 1px solid #275258;
-border-radius: 10px;
+float: none;
+border: 1px solid #aa1111;
+border-radius: 5px;
 }
+
 article blockquote {
 padding: 15px 10px 5px 15px;
 font-size: 1.1em;
@@ -415,11 +418,12 @@ padding: 0;
 width: auto;
 float: none;
 }
+/*
 article img {
 margin: 0;
 float: none;
 }
-
+*/
 footer {
 text-align: left;
 }
