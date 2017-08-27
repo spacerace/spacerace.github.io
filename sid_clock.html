@@ -63,8 +63,17 @@ Der eigentliche Inhalt der Seite
 	<ul><li>8MHz Quarz, 32.768kHz Quarz</li></ul>
 	<br>
 	<h1>Display:</h1><br>
-	<h1>SID</h1><br>
-	<h1>Audio-Verstärker</h1>
+	Das Display stammt aus einer Nokia DBOX und ich habe es <a href="">hier</a> genauer beschrieben.<br>
+	<h1>SID:</h1><br>
+	Der SID ist noch <b>nicht</b> fest mit an der Uhr. Ich hatte zum Testen ein "Breakout-Board" gebaut und
+	mit hauchdünnen Kupferlackdrähten verbunden. Das Testprogramm läuft und bringt ihn zum Piepsen. Zur Zeit
+	weckt er gar nicht, da das erstmal in Sandwich-Bauweise fest mit eingebaut werden muss...<br>Der SID ist
+	ein 6581, den ich aus einem toten C64 habe. Da ich auch noch einen 85xx-SID habe, der mit 9V statt 12V
+	arbeitet, kann die Stromversorgung auf diese beiden Spannungen eingestellt werden. Dazu mehr weiter unten.
+	<h1>Audio-Verstärker + Lautsprecher:</h1>
+	Der Audio-Verstärker wurde auch noch nicht fest eingebaut. Der Lautsprecher ist ein kleiner 8Ohm 0.25W aus
+	einem alten PC-Gehäuse.<br>
+	Der Audio Verstärker wird wohl ein einfacher LMxxx Kopfhörerverstärker oder ganz einfach ein OpAmp wie LM358 werden.<br>
 	<h1>RTC:</h1><br>
 	Der stm32f103 besitzt eine Real-Time-Clock (RTC). Diese zählt die Sekunden seit start in einem 32bit breiten Register.<br>
 	Fällt der Strom aus und die RTC ist gepuffert, läuft diese weiter. Sobald der Strom wieder da ist, kann das Programm beim<br>
@@ -76,6 +85,8 @@ Der eigentliche Inhalt der Seite
 	Der Widerstand begrenzt den Ladestrom zu Beginn auf ca. (3,3V-0,7V)/22Ohm=118mA.<br>
 	Der Spannungsregler auf dem BluePill-Board wäre damit fast schon überfordert, will man den dafür verwenden, sollte man R1 auf 75...100Ohm vergrössern.<br>
 	Dementsprechend steigt aber auch die Ladezeit.<br><br>
+	Zur Zeit verwende ich die RTC gar nicht, da das Programm noch nicht fertig ist und ich sowieso einen SysTick habe,
+	aus dem ich die Zeit ableiten will.
 	<h1>Stromversorgung:</h1><br>
 	Der SID in der älteren Version benötigt 12V und in der neueren Version 9V. Dabei auch ein bisschen Strom, er erwärmt sich stark.<br>
 	Das Display benötigt 5V und frisst dabei ganz schön was an Strom, wird ebenfalls sehr warm.<br>
@@ -87,12 +98,16 @@ Der eigentliche Inhalt der Seite
 	Beim Display und der restlichen Elektronik jedoch setzte ich auf den DC/DC-Wandler, da wären mir die Verluste auf Dauer doch zu hoch.
 	Grob überschlagen wären das (18V-5V)*0.35A=4.55W.<br>
 	Die 5V Versorgung wird von 2x 6F/2.7V-SuperCaps gepuffert. In Reihe ergibt das 3F/5.4V und hält Display+Controller ca. 1,5 Minuten am laufen.<br><br>
+	<h1>Stromverbrauch:</h1>
+	
 	<h1>Gehäuse:</h1><br>
 	
 	<hr><hr>
 	
-	<h1>Software</h1>
-	
+	<h1>Software:</h1>
+	Für einfachen Uhr-/Weckerbetrieb reicht eine Dauer-Schleife und ein Timer Interrupt.<br>
+	In meinem Fall habe ich einen SysTick von 1kHz. Dieser SysTick zählt eine Variable (<i>ticks</i>) hoch. 
+	Sobald <i>ticks</i> 1000 erreicht, wird es zurückgesetzt auf 0 und der Sekundenzähler geht eins hoch.<br>
 </article>
 
 
