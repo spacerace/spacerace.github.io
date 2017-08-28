@@ -62,14 +62,20 @@ Der eigentliche Inhalt der Seite
 	<ul><li>LED an PC13, BOOT0/BOOT1 Jumper, RESET Button, USB, SWD</li></ul>
 	<ul><li>8MHz Quarz, 32.768kHz Quarz</li></ul>
 	<br>
+	Zum Programmieren des Chips nutze ich einen 5$ China ST-LinkV2 Klon. Die funktionierten bisher immer tadellos.<br>
+	<br>
 	<h1>Display:</h1><br>
-	Das Display stammt aus einer Nokia DBOX und ich habe es <a href="">hier</a> genauer beschrieben.<br>
+	Das Display stammt aus einer Nokia DBOX und ich habe es <a href="15-displays.html">hier</a> genauer beschrieben.<br>
 	<h1>SID:</h1><br>
 	Der SID ist noch <b>nicht</b> fest mit an der Uhr. Ich hatte zum Testen ein "Breakout-Board" gebaut und
 	mit hauchdünnen Kupferlackdrähten verbunden. Das Testprogramm läuft und bringt ihn zum Piepsen. Zur Zeit
 	weckt er gar nicht, da das erstmal in Sandwich-Bauweise fest mit eingebaut werden muss...<br>Der SID ist
 	ein 6581, den ich aus einem toten C64 habe. Da ich auch noch einen 85xx-SID habe, der mit 9V statt 12V
-	arbeitet, kann die Stromversorgung auf diese beiden Spannungen eingestellt werden. Dazu mehr weiter unten.
+	arbeitet, kann die Stromversorgung auf diese beiden Spannungen eingestellt werden. Der Stromversorgung habe ich einen
+	eigenen Abschnitt gewidmet.<br><br>
+	Entgegen aller schlechten Erfahrungen mit statischer Elektrizität und dem SID ist meiner unglaublich robust. Ich musste ihn
+	schon mit all seinen Beinchen aus dem Teppich ziehen und diese wieder geradebiegen. Bis dahin lag er immer nur in einer
+	Wühlkiste... Jetzt doch etwas sicherer aufbewahrt ;)
 	<h1>Audio-Verstärker + Lautsprecher:</h1>
 	<br>
 	Der Audio-Verstärker wurde auch noch nicht fest eingebaut. Der Lautsprecher ist ein kleiner 8Ohm 0.25W aus
@@ -85,9 +91,16 @@ Der eigentliche Inhalt der Seite
 	Die Diode D1 verhindert, dass der Rest der Schaltung aus den SuperCaps gespeist wird.<br>
 	Der Widerstand begrenzt den Ladestrom zu Beginn auf ca. (3,3V-0,7V)/22Ohm=118mA.<br>
 	Der Spannungsregler auf dem BluePill-Board wäre damit fast schon überfordert, will man den dafür verwenden, sollte man R1 auf 75...100Ohm vergrössern.<br>
-	Dementsprechend steigt aber auch die Ladezeit.<br><br>
+	Die Ladezeit ist kein unerheblicher Faktor dabei. <br>...<br>...<br>...
+	<br>
+	Der Schaltungsaufwand für die SuperCaps ist auch höher, als der für eine kleine Lithium-Zelle, wie z.B. von einem alten
+	Mainboard inkl. Sockel.<br>
+	Ich hoffe jedoch, dass die Schaltung so in 10 oder mehr Jahren noch funktioniert und ich nicht irgendwann die Batterie wechseln
+	muss.
+	<br><br>
 	Zur Zeit verwende ich die RTC gar nicht, da das Programm noch nicht fertig ist und ich sowieso einen SysTick habe,
-	aus dem ich die Zeit ableiten will.
+	aus dem ich die Zeit ableite.<br>
+	
 	<h1>Stromversorgung:</h1><br>
 	Der SID in der älteren Version benötigt 12V und in der neueren Version 9V. Dabei auch ein bisschen Strom, er erwärmt sich stark.<br>
 	Das Display benötigt 5V und frisst dabei ganz schön was an Strom, wird ebenfalls sehr warm.<br>
