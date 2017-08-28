@@ -81,19 +81,23 @@ Der eigentliche Inhalt der Seite
 	<br>
 	<hr>
 	<h2>SDA5708</h2>
+	Dieses Display verwende ich in meiner <b><a href="sid_clock.html">SID-Clock</a></b>.<br>
+	Ein Beispielprojekt mit makefile für ein STM32F103+SDA5708 findest du <a href="https://github.com/spacerace/stm32f103c8t6-sda5708">hier</a>.<br><br>
+	<center>
+	<img src="img/sda5708_small.jpg" alt="sda5708 12:07 herz">
+	</center>
 	Das Display von Siemens stammt aus einer alten Nokia DBOX 1, die ich vom Sperrmüll habe.<br>
 	Es ist ein sehr helles, grünes, 8 stelliges 5x7 Dot Matrix Display.<br>
 	Man kann jedes Pixel einzeln ansteuern und braucht im Programm einen Zeichensatz, der auch schon einiges an Flash belegen kann.<br>
 	Ich "verbrate" 3bit pro Byte, indem ich für jede Zeile ein Byte benutze. Damit komme ich auf 7byte pro Zeichen.
 	Bei einem vollen ASCII-Charset o.ä. braucht man dann 256x7b=1792byte.<br>
 	<br>
-	<center>
-	<img src="img/sda5708_small.jpg" alt="sda5708 12:07 herz">
-	</center>
-	<br>
-	Dieses Display verwende ich in meiner <b><a href="sid_clock.html">SID-Clock</a></b>.<br><br>
-	Ein Beispielprojekt mit makefile für ein STM32F103+SDA5708 findest du <a href="https://github.com/spacerace/stm32f103c8t6-sda5708">hier</a>.<br>
-	<BR><hr>
+	<hr>
+	<h2>SAA1064 I²C 7-Segment Treiber</h2>
+	<center><img src="img/saa1064/saa1064_small.jpg"></center><br>
+	<a href="saa1064.html">Hier</a> eine Beschreibung, sowie ein Linux-Programm um den Chip über einen
+	beliebigen I²C Bus des PCs/Boards zu steuern.<br><br>
+	<hr>
 	<h2>Ein paar 7-Segment-Anzeigen und ein Steckbrett</h2>
 	Langeweile und ein bisschen Auslötwahn, das kommt dabei raus:<br>
 	<center>
@@ -110,7 +114,34 @@ Der eigentliche Inhalt der Seite
 	<hr>
 	<h2>Super-Sized RGB 7-Segment-Anzeigen</h2>
 	Kürzlich fand ich im Elektroschrott ein paar Platinen, die aussehen, als würden sie von einem Spielautomaten oder etwas
-	Ähnlichem stammen. Ich habe nicht schlecht gestaunt, als ich die riesigen Anzeigen dann mal genauer gesehen habe...
+	Ähnlichem stammen. Ich habe nicht schlecht gestaunt, als ich die riesigen Anzeigen dann mal genauer angesehen habe...<br><br>
+	
+	Die Anzeigen sind Plastikkästen mit unterteilten Segmenten. Darunter befinden sich SMD-RGB-LEDs. Die LEDs werden von
+	Shift Registern, Power Shift Registern und Transistoren diskret angesteuert.<br>
+	Bisher habe ich mich noch nicht drangemacht, das mal zu skizzieren und auszuprobieren....<br>
+	<center>
+	<table>
+		<tr>
+			<td><center><img src="img/supersize_7seg/000_ss7s.jpg" width="250"></center></td>
+			<td><center><img src="img/supersize_7seg/001_ss7s.jpg" width="250"></center></td>
+			<td><center><img src="img/supersize_7seg/002_ss7s.jpg" width="250"></center></td>
+		</tr>
+		
+		<tr>
+			<td><center><img src="img/supersize_7seg/003_ss7s.jpg" width="250"></center></td>
+			<td><center><img src="img/supersize_7seg/004_ss7s.jpg" width="250"></center></td>
+			<td><center><img src="img/supersize_7seg/005_ss7s.jpg" width="250"></center></td>
+		
+		</tr>
+		
+		<tr>
+			<td><center><img src="img/supersize_7seg/006_ss7s.jpg" width="250"></center></td>
+			<td><center><img src="img/supersize_7seg/007_ss7s.jpg" width="250"></center></td>
+			
+		
+		</tr>
+	</table>
+	</center>
 	
 </article>
 
