@@ -63,15 +63,26 @@ Der eigentliche Inhalt der Seite
 	<br><br>
 	<hr>
 	<h2>SCF5740</h2>
-	Das Display von OSRAM habe ich auch einem E-Schrott-Container zusammen mit einer Platine, habe aber nie rausgefunden,
+	Diese beiden Display von OSRAM habe ich auch einem E-Schrott-Container zusammen mit einer Platine, habe aber nie rausgefunden,
 	für was das eingesetzt wurde.<br>
-	<center><img src="img/scf5740_alarm_clock.jpg"></center>
+	Es ist ein 4 stelliges 5x7 Dot Matrix Display mit roten LEDs. Leider wird dieses Display auch sehr warm und
+	möchte es nicht die ganze Zeit auf volles Leuchtstärke laufen lassen, ein bisschen dunkel...<br>
+	<center>
+	<table border="0">
+		<tr>
+			<td><center><img src="img/scf5740_alarm_clock.jpg" width="300"></center></td>
+			<td><center><img src="img/scf5740_displays.jpg" width="300"></center></td>
+		</tr>
+	</table>		
+		
+
+	</center>
 	<br>
 	<br>
 	<hr>
 	<h2>SDA5708</h2>
 	Das Display von Siemens stammt aus einer alten Nokia DBOX 1, die ich vom Sperrmüll habe.<br>
-	Es ist ein sehr helles, grünes, 5x7 Dot Matrix Display.<br>
+	Es ist ein sehr helles, grünes, 8 stelliges 5x7 Dot Matrix Display.<br>
 	Man kann jedes Pixel einzeln ansteuern und braucht im Programm einen Zeichensatz, der auch schon einiges an Flash belegen kann.<br>
 	Ich "verbrate" 3bit pro Byte, indem ich für jede Zeile ein Byte benutze. Damit komme ich auf 7byte pro Zeichen.
 	Bei einem vollen ASCII-Charset o.ä. braucht man dann 256x7b=1792byte.<br>
