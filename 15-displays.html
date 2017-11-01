@@ -118,6 +118,17 @@ Der eigentliche Inhalt der Seite
 	Die Anzeigen sind Plastikkästen mit unterteilten Segmenten. Darunter befinden sich SMD-RGB-LEDs. Die LEDs werden von
 	Shift Registern, Power Shift Registern und Transistoren diskret angesteuert.<br>
 	Bisher habe ich mich noch nicht drangemacht, das mal zu skizzieren und auszuprobieren....<br>
+	<br>
+	<i>Update 11/2017:</i><br>
+	Ich habe die Platine nun mal genauer unter die Lupe genommen und herausgefunden, wie das alles angesteuert
+	wird. Nach dieser Behandlung sind jetzt einige Leiterbahnen mit Folienstift bemalt und beschriftet, aber das
+	bekommt man auch wieder ab.<br><br>
+	Fast alle der 40 Ausgänge der Shift Register sind belegt, somit ist ein Steuerwort 5bytes lang.
+	Das Multiplex-Verfahren, welches hier verwendet wird, teilt das Display in drei Gruppen ein.
+	Wollen wir nun eine Update-Rate von 50Hz erzielen, brauchen wir gerade mal 750b/s zu senden, das sollte auch noch
+	mit dem langsamsten Controller und schlechten BitBanging-Code machbar sein.<br><br>  
+	
+	5b * 3 * 50Hz = <b>750b/s</b><br><br>
 	<center>
 	<table>
 		<tr>
