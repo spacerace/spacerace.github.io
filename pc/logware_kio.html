@@ -64,7 +64,41 @@ Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen 
 Der eigentliche Inhalt der Seite
 -->
 <article id="main">
-  
+Die Kasse, die ich <a href="">hier</a> beschrieben habe, hat eine ISA-"Karte", die gleich mehrere Funktionen erschlägt.<br><br>
+<ul>* Grafikkarte</ul>  
+<ul>* LAN-Karte</ul>
+<ul>* 3x UART extern, 1x UART "onboard" für Displays</ul>
+<ul>* 2 Anschlüsse für HD44780 Displays</ul><br>
+Ausserdem sind drei Wannenstecker auf dem Board, welche zum durchreichen der Mainboard-Eigenen seriellen und paralellen Ports da sind.<br>
+Nach aussen sind auf dem Board 2x SUB-D9 und 1x SUB-D25. Nach innen gehen drei Flachbandkabel ab, die auf das Mainboard gesteckt werden, wo sonst die Brackets angeschlossen werden.
+<br><br>
+<h1>VGA / Grafikkarte</h1>
+Chipsatz: CHIPS F65545 B2<br>
+RAM: ___kB<br>
+Interface zum PC: 16Bit ISA, zum Display: LVDS<br>
+VGA BIOS: "Universal VESA VBE 6.5", ___kB<br><br>
+Das verbaute Display unterstützt nur 800x600 bei 16 Farben. Andere Video-Modes werden in der Anzahl der Farben begrenzt
+und nur in einem Ausschnitt des Displays dargestellt.<br>
+<a href="">Foto 640x480x4 Windows 3.1</a><br>
+<a href="">Foto 80x25 Text BIOS</a><br>
+<a href="">Foto 800x600x4 Testprogramm von mir (DOS)</a><br>
+Leider hat die Displaybeleuchtung auf diesen Fotos immernoch eine Macke. Ich muss diese, denke ich, ersetzen.
+<br><br>
+<h1>LAN</h1>
+Die Netzwerkkarte ist eine SMSC91C94 und funktioniert tadellos mit dem Linux-Treiber. Die IO, IRQ und Memory Einstellungen dürften gängige sein, da der Linux-Treiber die Karte, ohne Konfiguration, auf Anhieb findet.<br><br>
+Adresse 0x300<br>
+IRQ 3<br>
+Mem 0xD0000<br>
+<br><br>
+<h1>UARTs</h1>
+Adresse:<br>
+<br><br>
+<h1>HD44780</h1>
+Einer der UARTs (#_) geht zu einem PIC_____. Dieser Mikrocontroller steuert bis zu zwei HD44780 Displays.<br>
+Der Kontrast wird noch über zwei Potis eingestellt, was etwas umstänlich ist. Eine einfache PWM und ein RC-Netzwerk reichen ja schon um das in Software zu machen :(<br>
+<br><br>
+<h1>Übersicht der Anschlüsse</h1>
+Der Einfachheit halber, habe ich einen Ausschnitt der Fotos beschriftet:<br>
 </article>
 
 
