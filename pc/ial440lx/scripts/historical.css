@@ -1,0 +1,38 @@
+whyul{list-style:none;padding-bottom:0px;}
+.caret{padding:0 0 0 12px;background:url(/sites/sitewide/30/pix/caret_double.gif) top left no-repeat; margin:0 0 0 0}
+.nocaret {list-style:disc; margin:0 0 1.2em 1.4em}
+.nocaret ul li {list-style:circle; margin:1em 0 1.2em 1em}
+.nocaretnum {list-style:decimal; margin:0 0 1.2em 1.4em}
+.nocaretnum ul li {list-style:lower-roman; margin:1em 0 1.2em 1em}
+.nocaretanchor {list-style:disc;}
+.sup-column {float:left; margin:0 0 0 0;}
+.sup-span-1 {width:99%;margin-top:-3px}
+.expand-wrap .sup-holder {margin:0;padding:0;padding-left:0;}
+.expand-wrap .sup-holder ul {margin:0 0 0 10px;padding:0;}
+.fontsm {font-size:90%;}
+
+/* concertina */
+.concertina .concertinatrigger {float:left;width:12px}
+.concertina .concertinatrigger a {font-weight:bold;font-family:arial,helvetica; font-size:13px;}
+.concertina .imageside {margin-left:0px;}
+.concertina dd{margin-left:12px;padding-top:15px;margin-bottom:-10px}
+.concertina dt{margin-bottom:-10px;}
+
+.with-space-bottom{padding-bottom:10px}
+.concertina .imageside strong {margin:0px; !important}
+
+
+body {margin-top: 0px; margin-right: 0px; margin-bottom: 15px; margin-left: 20px; margin-right: 10px; background-color: #ffffff;}
+body, div, span, ul, li, input, select, td {font-family: verdana,sans-serif;color: #555555; font-size: 13px;}
+a, a:visited {color: #0860a8;text-decoration: none;}
+a:hover {color: #0860a8;text-decoration: underline;}
+.famhd {color: #555555;font-size: 21px;font-weight: bold;}
+.anchorLinkMed a {color: #0860a8;font-size: 11px;text-decoration: none;}
+.anchorLinkMed a:hover {color: #0860a8;font-size: 11px;text-decoration: underline;}
+.subsectiontitle {color: #0C2E86;font-size: 11px;font-weight: bold; background-color:#FFFFFF;margin-bottom:5px;border:medium double #567EB9;}
+.prodhd {color: #6AADE4;font-weight: bold;font-size: 18px;width:800px;}
+.prodsubhd {font-weight: bold;font-size: 14px;width:800px;}
+.footer{width: 800px; text-align:center; font-size:10px;}
+.disclaimer {font-size: 10px;}
+.pdf {font-size: 13px;margin-left:20px;}
+.backtotop {font-size:75%;text-align:right;font-weight:normal;margin-right:15px;}
