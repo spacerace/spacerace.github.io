@@ -82,8 +82,27 @@ Ich habe auch noch einige AM29F010 (1Mx8=128kB) in DIL32 sowie eine grosse Samml
 geschlachteten Boards. Ich werde mal sehen, ob und wie ich die über die Platine die Chips programmieren kann. Klappt das,
 werde ich hier mit einem DOS und einem Linux Programm aufwarten.<br><br>
 Es existiert bereits ein Tool für Linux namens "flashrom", das diverse Chips programmieren kann, welches auch
-eine "drkaiser" Option hat. Doch das scheint leider nur für PCI Karten gemacht zu sein...
-<br>   
+eine "drkaiser" Option hat. Doch das scheint leider nur für PCI Karten gemacht zu sein...<br>   
+<br>
+Die Jumper FLASH müssen beide gesetzt sein, um den Chip zu flashen. Die Jumper S1-S3 legen die Adresse fest:<br>
+<table>
+<tr>
+	<td><strong>Jumper</strong></td>
+	<td><strong>Adresse</strong></td>
+</tr>
+<tr>
+	<td>S1</td>
+	<td>0xC8000</td>
+</tr>
+<tr>
+	<td>S2</td>
+	<td>0xD0000</td>
+</tr>
+<tr>
+	<td>S3</td>
+	<td>0xD8000</td>
+</tr>
+</table>
 </article>
 
 
