@@ -64,7 +64,26 @@ Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen 
 Der eigentliche Inhalt der Seite
 -->
 <article id="main">
-  
+Vor kurzem habe ich mir eine Dr. Kaiser's PC-Wächter ISA Karte etwas genauer angesehen...<br>
+Mir fiel sofort auf, dass das ein standard-Flash-Chip verbaut ist. Der nächste Gedanke war "... aaah DiskOnChip ..."<br>
+<br>
+Also habe ich den Chip von der Platine genommen und einen IC-Sockel verlötet. Danach die DoC draufgepackt, in einen
+486er gesteckt und zack - er bootete DOS von der DoC.<br><br>
+Die Platine des PC Wächters besitzt nur ein 7474, ein kleines Atmel PLD (ATF16V8, soweit ich weiss, die stromsparensten der PALs/GALs) und eben den Flash Chip.<br>
+<br><br>
+Das Auslöten gestaltete sich erst recht schwierig. Mit 40W Lötkolben, guter Spitze und viel Zinn konnte ich die Lötstellen nur
+sehr schwer erwärmen und weder Absaugpumpe noch Litze bekamen das Zinn hinreichend weg...<br>
+Also habe ich ein Backup vom Chip gezogen (ab 0x_____ __k lesen und in Datei schreiben) und kurzerhand jedes Beinchen
+abgezwickt. Danach konnte ich die Beinchen mit einer Pinzette aus der Platine ziehen, wenn ich von der Unterseite her gut
+erwärmt habe.<br>
+Opfert man einen Teil, kann der andere ohne Spuren wiederverwendet werden :|
+<br><br>
+Ich habe auch noch einige AM29F010 (1Mx8=128kB) in DIL32 sowie eine grosse Sammlung an verschieden BIOS Flash Chips von
+geschlachteten Boards. Ich werde mal sehen, ob und wie ich die über die Platine die Chips programmieren kann. Klappt das,
+werde ich hier mit einem DOS und einem Linux Programm aufwarten.<br><br>
+Es existiert bereits ein Tool für Linux namens "flashrom", das diverse Chips programmieren kann, welches auch
+eine "drkaiser" Option hat. Doch das scheint leider nur für PCI Karten gemacht zu sein...
+<br>   
 </article>
 
 
