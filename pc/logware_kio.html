@@ -5,7 +5,7 @@
   <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
   <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
   <link href="../css/style.css" rel="stylesheet" title="Default Stylesheet">
-  <title>Kontakt - spacerace.github.io</title>
+  <title>LogWare KIO - spacerace.github.io</title>
 </head>
 <body>
 
@@ -57,7 +57,7 @@ Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen 
 -->
 <nav id="breadcrumb">
   <h2>Sie sind hier:</h2>
-  <a href="./99-about.html"><span itemprop="title">Kontakt</span></a>
+  <a href=""><span itemprop="title">LogWare KIO</span></a>
 </nav><!-- breadcrumb ends -->
 
 <!--
@@ -71,6 +71,8 @@ Die Kasse, die ich <a href="">hier</a> beschrieben habe, hat eine ISA-"Karte", d
 <ul>* 2 Anschlüsse für HD44780 Displays</ul><br>
 Ausserdem sind drei Wannenstecker auf dem Board, welche zum durchreichen der Mainboard-Eigenen seriellen und paralellen Ports da sind.<br>
 Nach aussen sind auf dem Board 2x SUB-D9 und 1x SUB-D25. Nach innen gehen drei Flachbandkabel ab, die auf das Mainboard gesteckt werden, wo sonst die Brackets angeschlossen werden.
+<br><br>
+<img src="../img/kio/isa_con.jpg" width="80%">
 <br><br>
 <h1>VGA / Grafikkarte</h1>
 Chipsatz: CHIPS F65545 B2<br>
@@ -88,16 +90,22 @@ Rechts vom Display-Chip befindet sich eine 10-polige Stiftleiste. Diese ist für
 einen normalen Bildschirm anzuschliessen. Im "Slotblech" befindet sich auch eine Aussparung für so einen Stecker.
 <br>
 <img src="../img/kio/logware_kio_vga_pinout.jpg" alt="logware kio vga pinout"><br>
-<img src="../img/kio/logware_kio_vga_circuit.png" alt="logware kio vga pinout">
+<img src="../img/kio/logware_kio_vga_circuit.png" alt="logware kio vga pinout" width="80%">
+<img src="../img/kio/display_connectors.jpg" alt="logware kio vga pinout" width="80%">
+
+
+
 <br><br>
 <h1>LAN</h1>
 Die Netzwerkkarte ist eine SMSC91C94 und funktioniert tadellos mit dem Linux-Treiber. Die IO, IRQ und Memory Einstellungen dürften gängige sein, da der Linux-Treiber die Karte, ohne Konfiguration, auf Anhieb findet.<br><br>
 Adresse 0x300<br>
 IRQ 3<br>
 Mem 0xD0000<br>
+<img src="../img/kio/lan91c94_thumb.jpg">
 <br><br>
 <h1>UARTs</h1>
 Adresse:<br>
+<img src="../img/kio/tl16c554fn.jpg">
 <br><br>
 <h1>HD44780</h1>
 Einer der UARTs (#_) geht zu einem PIC_____. Dieser Mikrocontroller steuert bis zu zwei HD44780 Displays.<br>
