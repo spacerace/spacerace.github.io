@@ -9,17 +9,6 @@
 </head>
 <body>
 
-<!--
-Skiplinks
-Mit der Tabtaste Inhalte anspringen.
--->
-<ul id="skiplinks">
-  <li><a href="#navigation">Zum Hauptmenü</a></li>
-  <li><a href="#search">Zur Suche</a></li>
-  <li><a href="#main">Zum Inhalt</a></li>
-</ul><!-- skiplinks ends -->
-
-
 <header>
   <hgroup lang="en">
     <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
@@ -64,34 +53,72 @@ Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen 
 Der eigentliche Inhalt der Seite
 -->
 <article id="main">
-Die Kasse, die ich <a href="">hier</a> beschrieben habe, hat eine ISA-"Karte", die gleich mehrere Funktionen erschlägt.<br><br>
+Die Kasse, die ich <a href="">hier</a> beschrieben habe, hat eine ISA-"Karte", die gleich mehrere 
+Funktionen erschlägt.
+<br><br>
+
 <ul>* Grafikkarte</ul>  
 <ul>* LAN-Karte</ul>
 <ul>* 3x UART extern, 1x UART "onboard" für Displays</ul>
-<ul>* 2 Anschlüsse für HD44780 Displays</ul><br>
+<ul>* 2 Anschlüsse für HD44780 Displays</ul>
+<br>
 Ausserdem sind drei Wannenstecker auf dem Board, welche zum durchreichen der Mainboard-Eigenen seriellen und paralellen Ports da sind.<br>
 Nach aussen sind auf dem Board 2x SUB-D9 und 1x SUB-D25. Nach innen gehen drei Flachbandkabel ab, die auf das Mainboard gesteckt werden, wo sonst die Brackets angeschlossen werden.
 <br><br>
-<img src="../img/kio/isa_con.jpg" width="80%">
+
+
+<table>
+	<tr>
+		<td><a href="../img/kio/isa_con.jpg" target="_blank"><img src="../img/kio/isa_con.jpg" width="333">90° ISA Stecker</a></td>
+		<td><a href="../img/gallery_placeholder.jpg" target="_blank"><img src="../img/gallery_placeholder_small.png" width="333"><br>die ganze "Karte"</a></td>
+	</tr>
+	<tr>		
+		<td><a href="../img/kio/pcb_markings.jpg" target="_blank"><img src="../img/kio/pcb_markings.jpg" width="500">Beschriftung</a></td>
+	</tr>
+</table>
+
+<h1>Übersicht der Anschlüsse</h1>
+Der Einfachheit halber, habe ich einen Ausschnitt der Fotos beschriftet:<br>
+<a href="../img/kio/outside_conn.jpg" target="_blank"><img src="../img/kio/outside_conn.jpg" width="80%"><br>(click to enlarge)</a>
+
+
+
+
+
 <br><br>
+
 <h1>VGA / Grafikkarte</h1>
 Chipsatz: CHIPS F65545 B2<br>
 RAM: 1024kB (2x 256kx16)<br>
 Interface zum PC: 16Bit ISA, zum Display: LVDS<br>
-VGA BIOS: "Universal VESA VBE 6.5", ___kB<br><br>
-Das verbaute Display unterstützt nur 800x600 bei 16 Farben. Andere Video-Modes werden in der Anzahl der Farben begrenzt
-und nur in einem Ausschnitt des Displays dargestellt.<br>
+VGA BIOS: "Universal VESA VBE 6.5", 32kB<br><br>
+Das verbaute Display unterstützt nur 800x600 bei 16 Farben. Andere Video-Modes werden in der Anzahl der 
+Farben begrenzt und nur in einem Ausschnitt des Displays dargestellt.<br>
 <a href="">Foto 640x480x4 Windows 3.1</a><br>
 <a href="">Foto 80x25 Text BIOS</a><br>
 <a href="">Foto 800x600x4 Testprogramm von mir (DOS)</a><br>
 Leider hat die Displaybeleuchtung auf diesen Fotos immernoch eine Macke. Ich muss diese, denke ich, ersetzen.<br>
 <br>
 Rechts vom Display-Chip befindet sich eine 10-polige Stiftleiste. Diese ist für einen SUB-D 15 VGA Stecker um
-einen normalen Bildschirm anzuschliessen. Im "Slotblech" befindet sich auch eine Aussparung für so einen Stecker.
+einen normalen Bildschirm anzuschliessen. Im "Slotblech" befindet sich auch eine Aussparung für so einen Stecker.<br>
+Ein schnell gebauter VGA-Anschluss funktionierte auf Anhieb. Das Bild ist eine 1:1 Kopie des LVDS Displays.<br>
 <br>
-<img src="../img/kio/logware_kio_vga_pinout.jpg" alt="logware kio vga pinout"><br>
-<img src="../img/kio/logware_kio_vga_circuit.png" alt="logware kio vga pinout" width="80%">
-<img src="../img/kio/display_connectors.jpg" alt="logware kio vga pinout" width="80%">
+<strong>Merkwürdig...</strong> Der VGA Bildschirm zeigt den selben Effekt wie das Display - das Bild ist links mittig
+ausgerichtet...<br>Ich denke das VGA-BIOS ist auf das notwendigste reduziert...<br>
+Das schreit nach weiteren Ermittlungen! 
+<br>
+<table>
+	<tr>
+		<td><a href="../img/kio/logware_kio_vga_pinout.jpg" target="_blank"><img src="../img/kio/logware_kio_vga_pinout.jpg" width="250">Pinbelegung des VGA-Headers</a></td>
+		<td><a href="../img/gallery_placeholder_small.png" target="_blank"><img src="../img/gallery_placeholder_small.png" width="250"><br>selbstgebauter VGA-Anschluss</a></td>
+
+	</tr>
+	<tr>
+		<td><a href="../img/kio/display_connectors.jpg" target="_blank"><img src="../img/kio/display_connectors.jpg" width="250">l->r: LVDS Display, 2x HD44780</a></td>
+		<td><a href="../img/kio/logware_kio_vga_circuit.png" target="_blank"><img src="../img/kio/logware_kio_vga_circuit_thumb.png" width="250">Beschaltung des Video Chips, nahezu wie Beispiel im Datenblatt</a></td>
+		<td><a href="../img/kio/vram.jpg" target="_blank"><img src="../img/kio/vram.jpg" width="250">1MB Video RAM</a></td>
+	</tr>
+</table>
 
 
 
@@ -101,18 +128,16 @@ Die Netzwerkkarte ist eine SMSC91C94 und funktioniert tadellos mit dem Linux-Tre
 Adresse 0x300<br>
 IRQ 3<br>
 Mem 0xD0000<br>
-<img src="../img/kio/lan91c94_thumb.jpg">
+<a href="../img/kio/lan91c94.jpg" target="_blank"><img src="../img/kio/lan91c94_thumb.jpg"><br>(click to enlarge)</a>
 <br><br>
 <h1>UARTs</h1>
 Adresse:<br>
-<img src="../img/kio/tl16c554fn.jpg">
+<a href="../img/kio/uart.jpg" target="_blank"><img src="../img/kio/uart.jpg" width="80%"><br>(click to enlarge)</a>
 <br><br>
 <h1>HD44780</h1>
 Einer der UARTs (#_) geht zu einem PIC_____. Dieser Mikrocontroller steuert bis zu zwei HD44780 Displays.<br>
 Der Kontrast wird noch über zwei Potis eingestellt, was etwas umstänlich ist. Eine einfache PWM und ein RC-Netzwerk reichen ja schon um das in Software zu machen :(<br>
 <br><br>
-<h1>Übersicht der Anschlüsse</h1>
-Der Einfachheit halber, habe ich einen Ausschnitt der Fotos beschriftet:<br>
 </article>
 
 
