@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <link href="../css/style.css" rel="stylesheet" title="Default Stylesheet">
+  <title>DVD-Player IDE Laufwerk am PC</title>
+</head>
+<body>
+
+<header>
+  <hgroup lang="en">
+    <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
+    <h2>Elektronik, Mikrocontroller, Linux</h2>
+  </hgroup>
+</header>
+
+<main>
+<!--
+aside (1. Sidebar mit dem Hauptmenu)
+-->
+<aside>
+  <h2>Hauptmenu</h2>
+  <nav id="navigation">
+  <ul>
+    <li><a href="../index.html">Startseite</a></li>
+    <li><a href="../01-elektronik.html">Elektronik</a></li>
+    <li><a href="../05-mikrocontroller.html">Mikrocontroller</a></li>
+    <li><a href="../15-displays.html">Displays</a></li>
+    <li><a href="../35-linux.html">Linux</a></li>
+    <li><a href="../50-pc.html">PC</a></li>
+    <li><a href="../75-collect.html">Sammlung</a></li>
+    <li><a href="../99-about.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+</aside><!-- aside ends -->
+
+
+<!--
+breadcrumb (Brotkrümelnavigation)
+Das Breadcrumb-Menu basiert direkt auf einem von Google empfohlenem Schemata.
+http://support.google.com/webmasters/bin/answer.py?hl=de&answer=185417
+Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen könnte?
+-->
+<nav id="breadcrumb">
+  <h2>Sie sind hier:</h2>
+  <a href=""><span itemprop="title">DVD-Player IDE Laufwerk am PC</span></a>
+</nav><!-- breadcrumb ends -->
+
+<!--
+Der eigentliche Inhalt der Seite
+-->
+<article id="main">
+Vor kurzem habe ich zwei DVD-Player geschlachtet und in beiden war ein IDE-DVD-Laufwerk verbaut.<br><br>
+Kurzerhand beide ausgebaut und in einen Pentium 2 gesteckt. Eines war wirklich defekt, das andere ging.<br>
+Da die Laufwerke keine Hardware-Buttons haben, benutze ich einfach "eject /dev/cdrom".<br>
+Mit "ddrescue -vv --force /dev/cdrom /dev/null" lese ich die CD und lege sie im Nirvana ab. Geht ja auch nur um die Geschwindigkeit.<br>
+<br>
+<br>
+Sehr schnell sind die Laufwerke anscheinend nicht, im Schnitt hatte ich beim Lesen einer CDRW 610 Kilobyte pro Sekunde.<br>
+<br>
+<br>
+<table>
+	<tr>
+		<td><a href="../img/dvd_drives/01_both_drives.jpg" target="_blank"><img src="../img/dvd_drives/01_both_drives.jpg" width="250">Beide Laufwerke</a></td>
+		<td><a href="../img/dvd_drives/02_label_drive1.jpg" target="_blank"><img src="../img/dvd_drives/02_label_drive1.jpg" width="250">Label LW #1</a></td>
+		<td><a href="../img/dvd_drives/03_label_drive2.jpg" target="_blank"><img src="../img/dvd_drives/03_label_drive2.jpg" width="250">Label LW #2</a></td>
+	</tr>
+	<tr>
+		<td><a href="../img/dvd_drives/04_reading_cd.jpg" target="_blank"><img src="../img/dvd_drives/04_reading_cd.jpg" width="250">Drehen sieht man nicht auf dem Foto...</a></td>
+		<td><a href="../img/dvd_drives/05_ddrescue_output.jpg" target="_blank"><img src="../img/dvd_drives/05_ddrescue_output.jpg" width="250">ddrescue screenrape</a></td>
+
+	</tr>
+</table>
+<br><br>
+Kurz nach den Fotos landeten die dann noch im E-Schrott...
+
+</article>
+
+
+
+</main>
+
+
+<!--
+Ab hier kommen Javascripte, eigene oder Scripte von diversen Diensten (Facebook und Co.)
+-->
+
+</body>
+</html> 
