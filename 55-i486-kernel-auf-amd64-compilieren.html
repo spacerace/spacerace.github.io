@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <link href="css/style.css" rel="stylesheet" title="Default Stylesheet">
+  <title>Kontakt - spacerace.github.io</title>
+</head>
+<body>
+
+<header>
+  <hgroup lang="en">
+    <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
+    <h2>Elektronik, Mikrocontroller, Linux</h2>
+  </hgroup>
+</header>
+
+<main>
+<aside>
+  <h2>Hauptmenu</h2>
+  <nav id="navigation">
+  <ul>
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="01-elektronik.html">Elektronik</a></li>
+    <li><a href="05-mikrocontroller.html">Mikrocontroller</a></li>
+    <li><a href="15-displays.html">Displays</a></li>
+    <li><a href="35-linux.html">Linux</a></li>
+    <li><a href="50-pc.html">PC</a></li>
+    <li><a href="75-collect.html">Sammlung</a></li>
+    <li><a href="99-about.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+</aside>
+
+<nav id="breadcrumb">
+  <h2>Sie sind hier:</h2>
+  <a href=""><span itemprop="title">i486 Kernel auf AMD64 compilieren</span></a>
+</nav>
+
+<article id="main">
+	Kürzlich stand ich vor dem Problem, einen Kernel für einen 486er zu compilieren.<br><br>
+	All meine Produktivsysteme laufen mittlerweile auf anderen Architekturen und ein Cross-Compiler
+	ist zwar nett, aber sehr aufwendig einzurichten.<br>
+	Die nächste Idee war, eine Virtuelle Maschine zu benutzen. Leider ist das auch recht umständlich
+	und braucht einen nicht zu vernachlässigenden Overhead.<br>
+	Dann kam ich auf die gentoo-stages.<br><br>
+	Eine gentoo-stage ist ein minimales Grundsystem, welches im Grunde nur einen Compiler
+	und portage (das Paketmanagement von Gentoo) enthält.<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+	Die mount und chroot Befehle müssen als root ausgeführt werden. Ich arbeite die kompletten
+	Schritte hier als root ab, das macht einiges einfacher.
+	<br>
+	$ mkdir i486-linux
+	$ cd i486-linux
+	$ wget http://distfiles.gentoo.org/releases/x86/autobuilds/current-stage3-i486/stage3-i486-20171031.tar.bz2<br>
+	$ time tar xvpjf stage3-i486-20171031.tar.bz2<br>
+	$ cp -L /etc/resolv.conf etc/resolv.conf<br>
+	$ mount -t proc none proc<br>
+	$ mount --rbind /dev dev<br>
+	$ mount --rbind /sys sys<br>
+	$ chroot . /bin/bash<br>
+	<br>
+	Nun können wir den gcc kurz "ausprobieren":<br>
+	# i486-pc-linux-gnu-gcc -v<br>
+	<br>
+	Danach fehlt nur noch das Tool bc um den Kernel compilieren zu können:<br>
+	<br>
+	emerge --sync<br>
+	emerge -av bc<br>
+	<br>
+	Sobald wir das haben, können wir uns an den Kernel machen:<br>
+	# cd /root<br>
+	~ wget http kernel<br>
+	~ time tar xpf linux-4.13.11.tar.xz<br>
+	~ cd linux-4.13.11<br>
+	# make menuconfig<br>
+	# time make bzImage modules<br>
+	<br>
+	Wenn das nun ordentlich durchgelaufen ist, findet man das Kernel-Image unter "arch/x86/boot/bzImage".
+	Die Module liegen alle noch quer durch den Kernel-Ordner verteilt, man kann sie aber in der
+	chroot umgebung "installieren" und dann packen:<br>
+	<br>
+	# make modules_install<br>
+	# cd /root<br>
+	~ du -sh /lib/modules/4.13.11/<br>
+	~ time tar cvpjf ~/modules-4.13.11.tar.bz2 /lib/modules/4.13.11/<br>
+	~ cp linux-4.13.11/arch/x86/boot/bzImage /root/bzImage<br>
+	<br>
+	Nun hat man in /root die beiden Dateien "bzImage" und "modules-4.13.11.tar.bz2".<br>
+	<br>
+	Ich habe <a href="">hier</a> eine .config, den compilierten Kernel und die Module abgelegt.<br>
+	Der Kernel bootet auf einem ISA-only 486er. <a href="">Hier</a> mehr dazu (AP40AHD PC104 SBC).<br>
+
+
+</article>
+
+
+
+</main>
+</body>
+</html> 
