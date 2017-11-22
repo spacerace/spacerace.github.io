@@ -5,9 +5,10 @@
   <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
   <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
   <link href="css/style.css" rel="stylesheet" title="Default Stylesheet">
-  <title> PCF8577 + Linux - spacerace.github.io</title>
+  <title>SDRAM I²C Interface - spacerace.github.io</title>
 </head>
 <body>
+
 
 <header>
   <hgroup lang="en">
@@ -46,20 +47,26 @@ Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen 
 -->
 <nav id="breadcrumb">
   <h2>Sie sind hier:</h2>
-  <a href="./"><span itemprop="title">PCF8577 + Linux</span></a>
+  <a href="./"><span itemprop="title">SDRAM I²C Interface</span></a>
 </nav><!-- breadcrumb ends -->
 
 <!--
 Der eigentliche Inhalt der Seite
 -->
 <article id="main">
-	<h1>PCF8577 LCD Display Driver</h1><br>
-	<br>
-	Dieser Chip lässt sich per I²C ansteuern. In läteren PCs findet man einen I²C-Bus auf jedem RAM-Modul für das SPD-EEPROM.<br><br>
-	Folgende Fotos + Code zeigen ein solches LCD-Display an einem Pentium 2. Das Programm dazu läuft im Linux-Userspace und braucht keine
-	besonderen Treiber. Auf meinem Test-System reicht "modprobe i2c-dev".<br><br>
+  
 </article>
 
+Jeder PC, der SDRAM Module enthält, hat einen I²C Bus für das SPD EEPROM auf den RAM-Modulen.
+Diesen I²C Bus kann man abgreifen und eigene Elektronik anbinden. 2 Datenleitung + Versorgung, das
+geht sehr schnell und ist einfach.<br>
+<br>
+Meine Lösung hier geht direkt an das RAM-Modul und funktioniert mit 3,3V. Ich hole mit den LEDs und dem PCF8574
+ca 50mA aus dem Board. Braucht man mehr oder 5V, sollte man die Spannung am Netzteil abgreifen. <br>
+Dabei muss man jedoch darauf achten, dass dann auch 5V auf den Busleitungen liegen. Das kann nicht jedes
+Board ab. Oft reichen Angstwiderstände zum Schutz in der Leitung. Ein richtiger 5V<->3.3V Pegelwandler wäre
+jedoch besser.<br>
+<br>
 
 
 </main>
