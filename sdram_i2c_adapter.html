@@ -55,20 +55,49 @@ Der eigentliche Inhalt der Seite
 -->
 <article id="main">
   
-</article>
+
 
 Jeder PC, der SDRAM Module enthält, hat einen I²C Bus für das SPD EEPROM auf den RAM-Modulen.
 Diesen I²C Bus kann man abgreifen und eigene Elektronik anbinden. 2 Datenleitung + Versorgung, das
 geht sehr schnell und ist einfach.<br>
 <br>
+Hier ein Bild vom gesamten Aufbau:
+<br>
+<img src="img/i2c_adapter/sdramio.jpeg" alt="" width="250">
+<br><br>
 Meine Lösung hier geht direkt an das RAM-Modul und funktioniert mit 3,3V. Ich hole mit den LEDs und dem PCF8574
-ca 50mA aus dem Board. Braucht man mehr oder 5V, sollte man die Spannung am Netzteil abgreifen. <br>
+ca 50mA aus dem Board. Braucht man mehr Strom oder 5V, sollte man die Spannung am Netzteil abgreifen. <br>
 Dabei muss man jedoch darauf achten, dass dann auch 5V auf den Busleitungen liegen. Das kann nicht jedes
 Board ab. Oft reichen Angstwiderstände zum Schutz in der Leitung. Ein richtiger 5V<->3.3V Pegelwandler wäre
 jedoch besser.<br>
 <br>
+Auf dem RAM-Modul befindet sich ein 24xx EEPROM, oft ein 24LC02. In jedem Fall sollte das entsprechende Datenblatt
+angesehen werden um die Pins zu identifizieren.<br>
+Es geht dabei um GND, SDA und SCL.<br>
+<tr>
+<td><img src="img/i2c_adapter/i2c_abgriff.jpeg" alt="I2C Abgriff am RAM Modul" width="250"></td>
+<td><img src="img/i2c_adapter/2402_package.png" alt="I2C Abgriff am RAM Modul" width="250"></td>
+</tr>
+
+<br>
+<br>
+<strong>PCF8574 Portexpander</strong><br>
+<br>
+Dieser Chip stellt 8 Ein-/Ausgabeleitungen zur Verfügung. In meinem Fall habe ich einen PCF8574<strong>A</strong> verwendet.
+Dieser unterscheidet sich lediglich in seiner Adresse zum 8574 ohne A. Durch die drei Addresspins lassen sich 8
+Adressen einstellen. Nimmt man also von beiden Varianten 8 Stück, bekommt man 128 IO-Leitungen an einen I²C-Bus.<br>
+Mehr dazu im Datenblatt, oder hier auf Deutsch <a href="http://www.mikrocontroller.net/articles/Port-Expander_PCF8574">http://www.mikrocontroller.net/articles/Port-Expander_PCF8574.
+<br>
+<br>
+<tr>
+<td><img src="img/i2c_adapter/pcf8574.png" alt="">></td>
+<td><img src="img/i2c_adapter/pcf8574_package.png" alt="I2C Abgriff am RAM Modul" width="200"></td>
+</tr>
+<br><br>
 
 
+
+</article>
 </main>
 
 

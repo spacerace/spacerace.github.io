@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <link href="css/style.css" rel="stylesheet" title="Default Stylesheet">
+  <title>Kontakt - spacerace.github.io</title>
+</head>
+<body>
+
+
+<header>
+  <hgroup lang="en">
+    <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
+    <h2>Elektronik, Mikrocontroller, Linux</h2>
+  </hgroup>
+</header>
+
+<main>
+<!--
+aside (1. Sidebar mit dem Hauptmenu)
+-->
+<aside>
+  <h2>Hauptmenu</h2>
+  <nav id="navigation">
+  <ul>
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="01-elektronik.html">Elektronik</a></li>
+    <li><a href="05-mikrocontroller.html">Mikrocontroller</a></li>
+    <li><a href="15-displays.html">Displays</a></li>
+    <li><a href="35-linux.html">Linux</a></li>
+    <li><a href="50-pc.html">PC</a></li>
+    <li><a href="75-collect.html">Sammlung</a></li>
+    <li><a href="99-about.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+</aside><!-- aside ends -->
+
+
+<!--
+breadcrumb (Brotkrümelnavigation)
+Das Breadcrumb-Menu basiert direkt auf einem von Google empfohlenem Schemata.
+http://support.google.com/webmasters/bin/answer.py?hl=de&answer=185417
+Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen könnte?
+-->
+<nav id="breadcrumb">
+  <h2>Sie sind hier:</h2>
+  <a href="./99-about.html"><span itemprop="title">Kontakt</span></a>
+</nav><!-- breadcrumb ends -->
+
+<!--
+Der eigentliche Inhalt der Seite
+-->
+<article id="main">
+Nachdem ich eine ganze Weile suchen und ausprobieren musste, wie man I²C mit dem /dev-Interface auf dem Grasshopper zum Laufen bekommt, schreibe ich das nun hier auch mal auf.<br>
+<br>
+Der Text hier bezieht auf das Board mit dem Originalkernel im Auslieferungszustand, also eine Art „Quickstarting with I²C“.<br>
+<br>
+Das Problem war, dass er zwar das I²C-„Host-Device“ erkannt hat, aber keine /dev-Node erstellt hat und wenn ich diese von Hand erstellt habe, dann gings nicht.<br>
+<br>
+Die Lösung liegt darin, die Treiber in der richtigen Reihenfolge zu laden.<br>
+<br>
+<br>
+<pre style='color:#d1d1d1;background:#000000;'>$ modprobe i2c-atmeltwi
+$ modprobe i2c-core
+$ modprobe i2c-dev
+</pre>
+
+Nun kann man nachsehen, ob das I²C-/dev-Gerät erstellt worden ist:<br>
+<br>
+$ ls -al /dev/i2c*
+crw-r--r--    1 root     root      89,   0 Dec 31  2006 /dev/i2c-0
+Sollte dabei nicht herauskommen, kann man die Device-Node von Hand anlegen:
+
+$ mknod /dev/i2c-0 89 0 b
+Nun kann man z.B. so den Bus durchsuchen lassen:
+
+$ ./i2cdetect -y -r 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- 28 -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- 44 -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --
+Bei mir sind zu dem Zeitpunkt die Adressen $28 und $44 belegt gewesen, ein MAX127 AD-Wandler und ein MAX6956 20-Port LED Treiber/IO-Expander.
+i2cdetect ist ein Teil von i2ctools und leider nicht von Haus aus auf dem Board. Ich habe es übersetzt, eingetütet und ihr könnt es hier herunterladen. Auf dem Board entpacken und ausführen.
+
+Um die Treiber und die Device-Node automatisch laden und anlegen zu lassen, muss man den „autostart“ des Board ein wenig bearbeiten:
+
+$ vi /etc/rc.d/S50i2c.sh
+„i“ drücken (starten des eingabe modus)
+
+#!/bin/sh
+ case "$1" in
+ start|"")
+ echo Starting i2c driver
+ modprobe i2c-atmeltwi
+ modprobe i2c-core
+ modprobe i2c-dev
+ mknod /dev/i2c-0 89 0 c
+ ;;
+ stop)
+ ;;
+ *)
+ echo "Usage: $0 [start|stop]"
+ exit 255
+ ;;
+ esac
+return 0
+:wq tippen (beenden von vi und speichern)
+
+$ chmod +x /etc/rc.d/S50i2c
+Ab jetzt wird bei jedem Neustart der Treiber automatisch richtig geladen.
+
+</article>
+
+
+
+</main>
+
+
+<!--
+Ab hier kommen Javascripte, eigene oder Scripte von diversen Diensten (Facebook und Co.)
+-->
+
+</body>
+</html> 
