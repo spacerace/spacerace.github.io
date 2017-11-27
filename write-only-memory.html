@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="spacerace-stecdose-krumeltee | private homepage | elektronik | mikrocontroller | linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <link href="css/style.css" rel="stylesheet" title="Default Stylesheet">
+  <title>WriteOnlyMemory Linux Kernel Driver - spacerace.github.io</title>
+</head>
+<body>
+
+
+<header>
+  <hgroup lang="en">
+    <h1><a href="index.html"><abbr title="Startseite">spacerace.github.io</abbr></a></h1>
+    <h2>Elektronik, Mikrocontroller, Linux</h2>
+  </hgroup>
+</header>
+
+<main>
+<!--
+aside (1. Sidebar mit dem Hauptmenu)
+-->
+<aside>
+  <h2>Hauptmenu</h2>
+  <nav id="navigation">
+  <ul>
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="01-eluc.html">Elektronik + µC</a></li>
+    <li><a href="15-displays.html">Displays</a></li>
+    <li><a href="35-linux.html">Linux</a></li>
+    <li><a href="50-pc.html">PC + DOS</a></li>
+    <li><a href="75-collect.html">Sammlung</a></li>
+    <li><a href="99-about.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+</aside><!-- aside ends -->
+
+
+<!--
+breadcrumb (Brotkrümelnavigation)
+Das Breadcrumb-Menu basiert direkt auf einem von Google empfohlenem Schemata.
+http://support.google.com/webmasters/bin/answer.py?hl=de&answer=185417
+Eine Liste wäre hier auch denkbar, stellt sich nur die Frage, wie das aussehen könnte?
+-->
+<nav id="breadcrumb">
+  <h2>Sie sind hier:</h2>
+  <a href="./"><span itemprop="title">WriteOnlyMemory</span></a>
+</nav><!-- breadcrumb ends -->
+
+<!--
+Der eigentliche Inhalt der Seite
+-->
+<article id="main">
+	Der Chip-Hersteller Signetics brachte 1973 ein Datenblatt für ein Write-Only-Memory heraus.<br>
+	<br>
+	Unter <a href="https://github.com/spacerace/write-only-memory">https://github.com/spacerace/write-only-memory</a> habe ich einen Treiber für diesen Chip veröffentlicht.<br>
+	<br>
+	So wird er übersetzt und geladen:<br>
+<pre>
+$ apt-get install linux-headers-<your-kernel-version> build-essential git
+$ git clone https://github.com/spacerace/write-only-memory
+$ cd write-only-memory
+$ make
+$ insmod wom.ko
+$ dmesg | tail	# look for major number, see one line down
+$ mknod /dev/wom c 248 0</pre>
+Danach kann er benutzt werden:<br>
+<pre>
+# cat /dev/wom 
+write only memory does not support read operations. Already wrote 0bytes to nowhere.
+# cat /dev/urandom > /dev/wom 
+^C
+# cat /dev/wom 
+write only memory does not support read operations. Already wrote 207749120bytes to nowhere.</pre>
+	Ein paar Sekunden nach dem "cat" drückte ich STRG-C um abzubrechen. Bis dahin schrieb er
+	ca. 200MB nach nirgendwo.
+
+<br>
+<br>
+</article>
+
+
+
+</main>
+
+
+<!--
+Ab hier kommen Javascripte, eigene oder Scripte von diversen Diensten (Facebook und Co.)
+-->
+
+</body>
+</html> 
